@@ -1,0 +1,12 @@
+set terminal gif animate
+set title "theta=35º;v_o=11.1km/s"
+set xrange[-1.5:1.5]
+set yrange[-1.5:1.5]
+set output 'nave1.gif'
+
+do for [i=1:9999:4] {plot 'datos_cohete.txt' u 1:2 every ::::i w l lc rgb 'red' notitle, '' u 1:2 every ::i::i w p pointtype 6 t "Nave", 'datos_luna.txt' u 1:2 every ::i::i w p pointtype 7 t "Luna"}
+
+
+#define theta 0.52   //Angulo en radianes (30º)
+#define h 1.0
+#define v 11150.0   //Velocidad de escape en m/s
